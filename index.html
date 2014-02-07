@@ -17,10 +17,15 @@
       <div class="large-8 small-8 columns">
       <h2>Player</h2>
         <div ng-controller="PlayerController">
-        {{ programs }}
+          <button ng-show="!playing" ng-click="play()">Play</button>
+          <button ng-show="playing" ng-click="stop()">Stop</button>
+          <ul id="program-list" class="">
+            <li ng-repeat="program in programs"  ng-click="play(program)">
+              {{program.title.$text | json }}
+            </li>
+          </ul>
         </div>
       </div>
-
       <div class="large-4 small-4 columns" ng-controller="RelatedController">
         <h2>Related content</h2>
       </div>
